@@ -57,5 +57,14 @@ public class ConvidadoController {
 		return view;
 		
 	}
+	@GetMapping("editar/{id}")
+	public ModelAndView  alterarConvidado(@PathVariable Long id) {
+		Convidado convidado= repo.findById(id).get();
+		
+		ModelAndView view= new ModelAndView("editar");
+		view.addObject("convidado", convidado);
+		
+		return view;
+	}
 
 }
